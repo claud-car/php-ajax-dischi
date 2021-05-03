@@ -9,8 +9,16 @@
 
 var app = new Vue({
   el: '#root',
-  data: {},
-  methods: {}
+  data: {
+    dischi: []
+  },
+  created: function created() {
+    var _this = this;
+
+    axios.get("http://localhost/4_php/php-ajax-dischi/call.php").then(function (response) {
+      _this.dischi = response.data;
+    });
+  }
 }); //fine root
 
 console.log("bababaab");
